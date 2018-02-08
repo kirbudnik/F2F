@@ -1,0 +1,17 @@
+FROM node:8.5.0-wheezy
+
+RUN mkdir -p /root/.aws
+COPY credentials /root/.aws
+RUN mkdir /app
+WORKDIR /app
+ENV NODE_ENV development	
+
+RUN npm install nodemon -g	
+
+COPY package.json /app
+RUN npm install --production
+
+
+
+CMD [ "nodemon", "-L", "index.js" ]	
+

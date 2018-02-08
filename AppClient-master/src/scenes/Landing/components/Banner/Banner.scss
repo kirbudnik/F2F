@@ -1,0 +1,206 @@
+.f2fBanner {
+	position: relative;
+	width: 100%;
+	height: 56rem;
+	background: $black;
+	text-align: center;
+
+	.btnContainer {
+		height: 6.5em;
+
+		.f2fBtn {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: linear-gradient(to bottom, rgba(125, 185, 232, 0) 0%, rgba(0, 0, 0, .8) 100%);
+	}
+
+	.f2fBannerInner {
+		position: relative;
+		margin: 0 auto;
+		height: 100%;
+		display: table;
+		max-width: 120rem;
+		color: $white;
+		z-index: 2;
+	}
+
+	.f2fBannerContent {
+		display: table-cell;
+		padding-right: 3rem;
+		padding-bottom: 3rem;
+		padding-left: 3rem;
+		vertical-align: bottom;
+	}
+
+	.f2fBannerListContainer {
+		margin-top: 6.4rem;
+		margin-bottom: 1rem;
+
+		ul {
+			display: inline-block;
+			text-align: left;
+			font-size: 1.2rem;
+			list-style-type: none;
+
+			li {
+				padding-top: .4rem;
+				padding-bottom: .4rem;
+				padding-left: 2.4rem;
+				background-image: url('images/svg/checkmark.svg');
+				background-position: left center;
+				background-repeat: no-repeat;
+				background-size: 1.8rem;
+			}
+		}
+	}
+
+	h1,
+	p {
+		text-shadow: 0 0 1rem rgba($black, .2);
+	}
+
+	h1 {
+		margin: 0;
+		letter-spacing: -.05rem;
+		line-height: 6.2rem;
+		font-size: 4.2rem;
+		font-weight: 900;
+	}
+
+	p {
+		margin-top: 2.5rem;
+		margin-right: auto;
+		margin-bottom: 3.5rem;
+		margin-left: auto;
+		width: 26rem;
+		line-height: 2.8rem;
+		font-size: 2rem;
+	}
+
+	em {
+		color: $orange;
+		font-style: normal;
+	}
+}
+
+@include medium {
+	.f2fBanner {
+		height: 64rem;
+
+		.f2fBannerContent {
+			padding-bottom: 8rem;
+		}
+
+		.f2fBannerListContainer {
+			margin-top: 12rem;
+
+			ul {
+				margin-right: auto;
+				margin-left: auto;
+				display: block;
+				text-align: center;
+				font-size: 1.8rem;
+
+				li {
+					display: inline-block;
+					padding-left: 0;
+					background-image: none;
+
+					&:not(:first-child) {
+						margin-left: 2.6rem;
+						padding-left: 2.6rem;
+						border-left: 2px solid $orange;
+					}
+				}
+			}
+		}
+
+		.btnContainer {
+			.f2fBtn {
+				width: 22rem;
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+				font-size: 1.8rem;
+			}
+		}
+
+		h1 {
+			line-height: normal;
+			font-size: 7.2rem;
+		}
+
+		p {
+			margin-bottom: 5.5rem;
+			width: 50rem;
+			line-height: 3.6rem;
+			font-size: 2.4rem;
+		}
+	}
+}
+
+@include large {
+	.f2fBanner {
+		height: 68rem;
+
+		h1 {
+			font-size: 8rem;
+		}
+
+		p {
+			margin-bottom: 5.5rem;
+			width: 65rem;
+			line-height: 4.6rem;
+			font-size: 3.2rem;
+		}
+
+		.btnContainer {
+			margin-bottom: 6.5rem;
+		}
+	}
+}
+
+
+// Banner Slide Images
+
+.f2fBannerSlideMeet {
+	background-image: url('images/banner/meet.jpg');
+	background-size: cover;
+}
+
+.f2fBannerSlideTeach {
+	background-image: url('images/banner/teach.jpg');
+	background-size: cover;
+}
+
+.f2fBannerSlideWebinar {
+	background-image: url('images/banner/webinar.jpg');
+	background-size: cover;
+}
+
+.f2fBannerSlideStream {
+	background-image: url('images/banner/stream.jpg');
+	background-size: cover;
+}
+
+
+@media (min-width: 768px) {
+	.f2fBannerSlideTeach {
+		background-position: center -8rem;
+	}
+}
+
+@media (min-width: 1400px) {
+	.f2fBannerSlideTeach {
+		background-position: center -14rem;
+	}
+}

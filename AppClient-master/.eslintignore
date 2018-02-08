@@ -1,0 +1,5 @@
+node_modules/
+dist/build/
+src/vendor/react-feather/icons/
+/coverage
+.storybook_static/

@@ -1,0 +1,70 @@
+.btn {
+	color: $gray;
+	font-size: 10px;
+	border-radius: 3px;
+	background-color: $bc-aside-button;
+	width: 64px;
+	height: 44px;
+	box-shadow: 0 0 2px 2px $medium-shadow;
+	transition: background-color .4s, color .4s;
+	margin: 4px .6rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: .8rem .6rem 0;
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+
+	svg {
+		stroke-width: 0;
+		max-width: 38px;
+
+		path,
+		polygon,
+		rect {
+			transition: fill .4s;
+		}
+	}
+
+	p {
+		margin: 0 0 .2rem;
+	}
+
+	&:hover {
+		background-color: $bc-aside-button-hover;
+	}
+
+	&.active {
+		background-color: $orange;
+
+		&:hover {
+			background-color: $bc-aside-button-active-hover;
+		}
+	}
+
+	&:hover,
+	&.active {
+		color: $white;
+
+		svg {
+			path,
+			polygon,
+			rect {
+				fill: $white;
+			}
+		}
+	}
+}
+
+@include medium {
+	.btn {
+		margin: 0 0 1rem;
+		padding: .6rem .6rem 0;
+
+		svg {
+			max-width: 50px;
+		}
+	}
+}

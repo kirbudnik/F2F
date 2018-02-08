@@ -1,0 +1,30 @@
+machine:
+  services:
+    - docker
+  node:
+    version: 8.3.0
+
+
+dependencies:
+  override:
+    # Perform a fresh install of all modules
+    # See https://github.com/sass/node-sass/issues/1774
+    - rm -rf node_modules
+    - npm install
+    # environment inferred in webpack.config.js
+    - node_modules/.bin/webpack
+    - rm dist/build/static/*.map
+    - docker build -t $REGISTRY/$APP_NAME:$CIRCLE_TAG .
+
+
+deployment:
+  production:
+    tag: production
+    owner: facetofacebroadcasting
+    commands:
+      - ./deploy.sh
+  staging:
+    tag: staging
+    owner: facetofacebroadcasting
+    commands:
+      - ./deploy.sh

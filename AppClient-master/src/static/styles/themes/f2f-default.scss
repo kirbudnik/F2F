@@ -1,0 +1,92 @@
+// Sizes
+$small-breakpoint: 767px;
+$medium: 768px;
+$large: 1200px;
+$xlarge: 1400px;
+
+$font-size: 2rem;
+$font-weight: 300;
+
+// Paddings/margins
+$padding: 1rem;
+$container-padding: $padding * 2;
+
+// Colors
+$white: #fff;
+$black: #1c1c1c;
+$light-gray: #f1f1f1;
+$gray: #a2a2a2;
+$medium-gray: #78777b;
+$dark-gray: #666;
+
+$tooltip-background: $black;
+
+$font-black: #161616;
+$font-gray: #6d6d6d;
+
+$bg-light-gray: #f2f5f8;
+$bg-gray: #efefef;
+$bg-dark-gray: #565656;
+$bg-alert: #ff7378;
+
+$green: #27b3ab;
+$dark-green: #034c47;
+
+$orange: #f99b2b;
+$dark-orange: #b06200;
+$red: #f00;
+$purple: #6600b9;
+$error: #f78080;
+$info: #ed9f46;
+
+$alt-link: #00a89e;
+
+$shadow: rgba(0, 0, 0, .2);
+$alpha-orange: rgba($orange, .9);
+$alpha-shadow: rgba($bg-dark-gray, .5);
+$light-shadow: rgba($black, .1);
+$medium-shadow: rgba($black, .3);
+$dark-shadow: rgba($black, .5);
+
+$preload-1: rgba($gray, .35);
+$preload-2: rgba($gray, .2);
+
+// Buttons
+$button-border-radius: 6px;
+$primary-button-color: #27a19a;
+
+// Avatar
+$avatar-border-radius: .618rem;
+
+// Landing
+$lp-box-shadow: rgba($black, .2);
+
+// Brodacast
+$bc-aside-bg: #353535;
+$bc-aside-content-bg: #474747;
+$bc-aside-buttons-bg: $bc-aside-content-bg;
+$bc-aside-bg-light: #515151;
+$bc-aside-border: darken($bc-aside-bg-light, 7%);
+$bc-aside-button: lighten($bc-aside-bg-light, 6%);
+$bc-aside-button-hover: #8c8c8c;
+$bc-aside-button-active-hover: #ffbe69;
+$bc-footer-background: $white;
+$bc-video-background: #000;
+$bc-video-outline-background: $black;
+$bc-icon-color: #555;
+$bc-botton-color: $primary-button-color;
+$bc-alpha-dropdown: rgba($white, .15);
+$bc-landscape-aside-width: 35vw;
+
+// Notifications
+$notifi-border-radius: 4px;
+$notifi-background: #27a19a;
+$notifi-error-background: $error;
+$notifi-info-background: $info;
+
+// Content
+$cover-default-backgound-color: #e9b26f;
+
+// Settings
+$input-background-color: #f9f9f9;
+

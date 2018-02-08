@@ -1,0 +1,163 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 8px;
+}
+
+@include medium {
+	html {
+		font-size: 9px;
+	}
+}
+
+@include large {
+	html {
+		font-size: 10px;
+	}
+}
+
+
+body {
+	margin: 0;
+	font-family: 'Source Sans Pro', 'Lato', sans-serif;
+	font-weight: 400;
+	color: $font-black;
+	backface-visibility: hidden;
+	-webkit-font-smoothing: subpixel-antialiased; // sass-lint:disable-line no-vendor-prefixes
+}
+
+:focus {
+	outline: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+	transition: color .3s;
+}
+
+button {
+	cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Lato', 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.2em;
+}
+
+h4,
+h5,
+h6 {
+	font-size: 1em;
+}
+
+:global {
+	:disabled,
+	.disabled {
+		opacity: .7;
+		pointer-events: none;
+		cursor: default;
+	}
+
+	.text-orange {
+		color: $orange;
+	}
+
+	.error-label {
+		background: $error;
+		display: block;
+		padding: .3rem;
+		color: $white;
+		font-weight: 300;
+	}
+
+	.input-desc {
+		position: absolute;
+		right: 0;
+		margin-top: -1rem;
+		font-size: .8em;
+		font-weight: 500;
+		color: $gray;
+
+		+ input,
+		+ textarea {
+			margin-top: .6rem;
+		}
+	}
+
+	.input-desc-error {
+		color: $error;
+		font-weight: bold;
+	}
+
+	.sort-table {
+		width: 100%;
+		text-align: left;
+		border-collapse: collapse;
+
+		thead {
+			border-bottom: 1px solid $dark-gray;
+			background-color: transparent;
+		}
+
+		tbody {
+			tr {
+				&:nth-child(2n) {
+					background-color: $light-gray;
+				}
+			}
+		}
+
+		th,
+		td {
+			font-weight: 400;
+			color: $dark-gray;
+			padding: 1rem;
+		}
+	}
+
+	body {
+		&.hide-footer {
+			.main-footer {
+				display: none;
+			}
+		}
+	}
+}
+
+@include small-only {
+	:global {
+		body {
+			&.mobile-hide-header {
+				.main-header {
+					display: none;
+				}
+			}
+		}
+	}
+}

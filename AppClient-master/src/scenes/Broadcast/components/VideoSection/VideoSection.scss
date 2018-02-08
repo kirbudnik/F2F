@@ -1,0 +1,539 @@
+.wrap {
+	display: flex;
+	flex-direction: column;
+	flex: auto;
+	overflow: hidden;
+	position: relative;
+
+	aside {
+		color: $light-gray;
+	}
+
+	.section {
+		display: flex;
+		flex: 1 0 56.25vw;
+		position: relative;
+		overflow: hidden;
+	}
+
+	&.withActiveTab {
+		.section {
+			flex-grow: 0;
+		}
+	}
+
+	.settings {
+		flex: 0 0 auto;
+
+		.inner {
+			display: flex;
+			padding-top: 6px;
+
+			> div {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				padding: 0 8px;
+				align-items: center;
+			}
+		}
+	}
+
+	.settings,
+	.settingsMobile {
+		background-color: $bc-aside-bg;
+	}
+
+	.settingsMobile {
+		padding: 1.6rem;
+		justify-content: center;
+		display: flex;
+		flex: 0 0 auto;
+	}
+
+	.asideContent {
+		flex: 1 1 auto;
+		background-color: $bc-aside-content-bg;
+		display: flex;
+		transition: margin .3s, opacity .3s;
+		overflow: hidden;
+
+		&.unvisible {
+			transition: margin .3s, opacity .3s, z-index .3s;
+			display: none;
+		}
+
+		.asideHeader {
+			display: none;
+		}
+
+		> div {
+			position: relative;
+			padding: 0 3rem;
+			display: flex;
+			flex-direction: column;
+			font-size: 1.5rem;
+			width: 100%;
+
+			h3 {
+				text-align: center;
+				font-size: 2.2rem;
+				font-weight: 400;
+				margin: 0;
+				width: 100%;
+			}
+
+			.close {
+				cursor: pointer;
+				position: absolute;
+				right: 3rem;
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+
+		[data-simplebar='init'] {
+			@include scroll-with-shadow;
+		}
+	}
+
+	.asideButtons {
+		background-color: $white;
+		padding: 1.6rem;
+		z-index: 10;
+		flex: 0 0 55px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		order: 2;
+
+		.notifiIconWrap {
+			position: relative;
+			display: inline-block;
+		}
+
+		h4 {
+			margin: 0;
+			font-size: 11px;
+			color: $dark-gray;
+		}
+	}
+
+	.footer {
+		display: flex;
+		flex: 1;
+		overflow: hidden;
+		padding: 0;
+		order: 1;
+		background-color: $bc-aside-content-bg;
+
+		.footerInner {
+			padding: 0 2px;
+			display: flex;
+			flex: auto;
+			align-items: center;
+			justify-content: flex-end;
+			cursor: default;
+		}
+	}
+
+	.rightIcon {
+		text-align: center;
+		width: 9rem;
+
+		svg {
+			cursor: pointer;
+			transition: fill .2s;
+			height: 26px;
+			fill: $gray;
+			stroke-width: 0;
+		}
+
+		&.active,
+		&:hover {
+			h4 {
+				color: $orange;
+			}
+
+			svg {
+				fill: $orange;
+			}
+
+		}
+	}
+
+	.rotateIcon {
+		margin-top: 6px;
+	}
+
+	.button {
+		border-radius: 2rem;
+		border-width: 2px;
+		padding: .6rem 2rem;
+		font-size: 1.8rem;
+		transition: background .2s, color .3s;
+		cursor: pointer;
+		border: 2px solid $medium-gray;
+		background-color: transparent;
+		color: darken($light-gray, 7%);
+		font-weight: 300;
+
+		&.alt {
+			font-size: 2.2rem;
+			border-color: $bc-botton-color;
+			color: $white;
+			font-weight: 300;
+			min-width: 12rem;
+			padding: .3rem 2rem;
+
+			&:hover {
+				background-color: $bc-botton-color;
+				color: $white;
+			}
+		}
+	}
+
+	.alerts {
+		position: absolute;
+		z-index: 10;
+		left: 0;
+		margin: 2rem;
+		bottom: 0;
+	}
+
+	.group {
+		display: flex;
+		align-items: center;
+		color: $orange;
+		font-size: 1.7rem;
+
+		p {
+			padding-right: 1rem;
+		}
+	}
+
+	.settingsListWrap {
+		> [data-simplebar='init'] {
+			flex: 1;
+		}
+	}
+
+	.settingsList {
+		> li {
+			padding: 1.618rem 2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-bottom: 1px solid lighten($bc-aside-content-bg, 5%);
+
+			> span {
+				display: flex;
+				align-items: center;
+				margin-right: .6rem;
+
+				> svg {
+					margin-right: 1rem;
+					margin-top: 1px;
+				}
+			}
+
+			&.disabled > span {
+				opacity: .4;
+			}
+		}
+	}
+
+	.layoutBtnWrap {
+		.layoutBtn {
+			margin-top: 4px;
+			color: $white;
+		}
+
+		&.open {
+			background-color: $orange;
+		}
+	}
+
+
+	.leftMargin {
+		margin-left: 1.6rem;
+	}
+}
+
+@include small-only {
+	.wrap {
+		&.hideMobileFooter {
+			.asideButtons {
+				display: none;
+			}
+
+			.asideContent {
+				bottom: 0;
+			}
+		}
+	}
+
+	.hideMobile {
+		display: none;
+	}
+}
+
+@include small-portrait {
+	.wrap {
+		.settings,
+		.settingsMobile {
+			box-shadow: inset 0 -4px 5px -2px $dark-shadow;
+		}
+	}
+}
+
+@include small-landscape {
+	.wrap {
+		.section {
+			flex-shrink: 1;
+		}
+
+		.asideContent,
+		.footer {
+			position: absolute;
+			right: -$bc-landscape-aside-width;
+			bottom: 55px;
+			top: 0;
+			z-index: 10;
+			width: $bc-landscape-aside-width;
+		}
+
+		.asideContent {
+			> div {
+				&:not(.landscapePadding) {
+					padding: 0;
+				}
+			}
+		}
+
+		.settings {
+			border-right: $bc-landscape-aside-width solid $bc-aside-content-bg;
+			min-height: 58px;
+		}
+
+		.settingsList {
+			padding: 0 1.6rem;
+		}
+
+		.asideButtons {
+			position: absolute;
+			z-index: 1;
+			bottom: 0;
+			right: 0;
+			width: $bc-landscape-aside-width;
+			background-color: $bc-aside-content-bg;
+		}
+
+		&.withActiveTab {
+			border-right: $bc-landscape-aside-width solid $bc-aside-content-bg;
+			overflow: visible;
+			height: calc(100vh - 55px); // Firefox height without 'overvlow: hidden'
+
+			.section {
+				flex-grow: 1;
+			}
+
+			.settings {
+				border-right: 0;
+			}
+
+			.asideButtons {
+				right: -$bc-landscape-aside-width;
+			}
+
+			+ div {
+				width: 100vw - $bc-landscape-aside-width !important; // sass-lint:disable-line no-important
+			}
+		}
+
+		.leftMargin {
+			margin-left: 2.4rem;
+		}
+	}
+}
+
+@include medium {
+	.wrap {
+		flex-direction: row;
+		margin-bottom: 8rem;
+		position: static;
+
+		.section {
+			flex: 1 1 auto;
+		}
+
+		&.withActiveTab {
+			.section {
+				flex-grow: 1;
+			}
+		}
+
+		aside {
+			flex: 0 0 auto;
+		}
+
+		.settings {
+			flex: 0 0 80px;
+
+			.inner {
+				flex-direction: column;
+				justify-content: space-between;
+				flex: 1;
+				padding: 4rem 0 2rem;
+
+				> div {
+					flex-direction: column;
+					flex: 0 0 auto;
+				}
+
+				&.center {
+					justify-content: center;
+
+					> div {
+						> div {
+							margin-bottom: 3rem;
+						}
+					}
+				}
+			}
+		}
+
+		.settingsListWrap {
+			> [data-simplebar='init'] {
+				margin: 0 -3rem;
+			}
+		}
+
+		.settingsMobile {
+			padding: 0;
+		}
+
+		.asideContent {
+			flex: 0 1 320px;
+			order: 0;
+			padding-bottom: 0;
+
+			&.unvisible {
+				display: flex;
+				margin-right: -320px;
+			}
+
+			.asideHeader {
+				display: flex;
+				align-items: center;
+				padding: 4rem 3rem;
+			}
+		}
+
+		.asideButtons {
+			display: block;
+			border-top: 0;
+			padding: 3.6rem 1rem 1rem;
+			background-color: $bc-aside-buttons-bg;
+			flex: 0;
+			box-shadow: 0 0 3px 2px $dark-shadow;
+			justify-content: center;
+
+			svg {
+				display: block;
+				margin: 0 0 3rem;
+			}
+		}
+
+		.alerts {
+			max-width: 320px;
+		}
+
+		.footer {
+			flex: 0 0 100%;
+			height: 8rem;
+			position: absolute;
+			z-index: 3;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: 0;
+			background-color: $bc-footer-background;
+
+			.footerInner {
+				@include container-fluid;
+			}
+		}
+
+		.rightIcon {
+			width: auto;
+
+			svg {
+				width: 18px;
+				height: 18px;
+			}
+
+			&.active {
+				svg {
+					fill: $white;
+				}
+			}
+		}
+
+		.mediumToFooter {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			bottom: 0;
+			right: 4rem;
+			z-index: 11;
+			height: 8rem;
+		}
+
+		.button {
+			min-width: 16rem;
+			font-weight: 400;
+			color: $medium-gray;
+
+			&:hover {
+				background-color: $medium-gray;
+				color: $white;
+			}
+
+			&.alt {
+				color: $bc-botton-color;
+				min-width: 16rem;
+				font-weight: 400;
+
+				&:hover {
+					background-color: $bc-botton-color;
+				}
+			}
+
+			&.gray {
+				background: $medium-gray;
+				color: $white;
+
+				&:hover {
+					background-color: transparent;
+					color: $medium-gray;
+				}
+			}
+		}
+
+		.settingsList {
+			padding: 0;
+
+			> li {
+				padding: 1.618rem 4rem;
+				border-bottom: 0;
+
+				&:nth-child(2n + 1) {
+					background-color: darken($bc-aside-content-bg, 3%);
+				}
+			}
+		}
+	}
+}

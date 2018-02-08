@@ -1,0 +1,90 @@
+.wrap {
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: $white;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex: 1;
+
+	h3 {
+		color: $white;
+		font-size: 1.8rem;
+		font-weight: 300;
+
+		&.empty {
+			width: 100%;
+			text-align: center;
+			align-self: center;
+		}
+	}
+
+	.scroll {
+		padding: 1rem 0;
+		overflow: hidden;
+		display: flex;
+		width: 1px;
+		flex: 1;
+
+		.inner {
+			display: flex;
+			transition: margin .2s;
+			padding: 0 1rem;
+		}
+	}
+
+	.arrowBtn {
+		background-color: darken($light-gray, 5%);
+		border: 0;
+		padding: 1.618rem 0;
+		margin-top: -2px;
+		transition: .2s;
+
+		&:hover {
+			background-color: $light-gray;
+		}
+	}
+}
+
+@include small-only {
+	.wrap {
+		@include scroll-with-shadow(2.8rem);
+		height: 100%;
+		align-items: flex-start;
+
+		.scroll {
+			height: 100%;
+			overflow: auto;
+			-webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+
+			.inner {
+				margin-left: 0 !important; // sass-lint:disable-line no-important
+				flex-wrap: wrap;
+				justify-content: center;
+
+				> div {
+					padding: 1.6rem 0;
+				}
+			}
+		}
+
+		.arrowBtn {
+			display: none;
+		}
+	}
+}
+
+@include medium {
+	.wrap {
+		margin-right: 1.618rem;
+		color: $orange;
+
+		h3 {
+			font-size: 1.6rem;
+			color: $dark-gray;
+			border-right: 2px solid $light-gray;
+			padding: 1rem 1.618rem 1rem 0;
+			margin: 0 -2px 0 0;
+		}
+	}
+}

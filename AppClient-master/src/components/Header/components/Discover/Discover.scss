@@ -1,0 +1,134 @@
+$discover-bg: #303030;
+$discover-shadow-color: #000;
+
+.wrap {
+	position: relative;
+	background-color: $discover-bg;
+	box-shadow: inset 0 -1px 30px $discover-shadow-color;
+	color: $white;
+	overflow: hidden;
+	height: 0;
+	transition: height .25s ease;
+
+	&.isOpen {
+		height: 13.2rem;
+		transition: height .2s ease;
+	}
+
+	.inner {
+		.slide {
+			background-color: $cover-default-backgound-color;
+			background-size: cover;
+			background-position: center;
+			margin: 2rem 2rem 4rem;
+			height: 7rem;
+			position: relative;
+			cursor: pointer;
+
+			.info {
+				display: flex;
+				align-items: flex-end;
+				position: absolute;
+				font-size: 1.8rem;
+				letter-spacing: 1px;
+				bottom: -4rem;
+				margin-left: 4rem;
+				width: 90%;
+
+				.avatar {
+					border: 1px solid $white;
+				}
+
+				h4 {
+					margin: 1rem 0;
+					font-weight: 300;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
+
+			.isLive {
+				display: flex;
+				align-items: center;
+				margin: 1rem;
+				background-color: darken($dark-gray, 7%);
+				font-size: .7em;
+				padding: 2px 4px;
+
+				&::before {
+					content: '';
+					display: block;
+					background-color: $red;
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+					margin-right: 3px;
+				}
+			}
+		}
+	}
+
+	.message {
+		text-align: center;
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		font-size: $font-size;
+		font-weight: $font-weight;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+
+	:global {
+		.slick-next,
+		.slick-prev {
+			position: absolute;
+			cursor: pointer;
+			z-index: 10;
+			height: 100%;
+			display: flex !important; // sass-lint:disable-line no-important
+			align-items: center;
+			top: 0;
+			width: 8rem;
+			margin: 0 8rem;
+
+			svg {
+				border: 2px solid $white;
+				border-radius: 50%;
+				margin: 0 1rem 1.6rem;
+				transition: background-color .3s, stroke .3s;
+			}
+
+			&:hover {
+				svg {
+					background-color: $white;
+					stroke: $black;
+				}
+			}
+		}
+
+		.slick-next {
+			right: 0;
+			justify-content: flex-end;
+			background: linear-gradient(to left, rgba($black, 1) 0%, rgba($black, 0) 100%);
+		}
+
+		.slick-prev {
+			left: 0;
+			background: linear-gradient(to right, rgba($black, 1) 0%, rgba($black, 0) 100%);
+		}
+	}
+}
+
+@include medium {
+	.wrap {
+		margin: 0 -8rem;
+
+		.message {
+			padding: 0 8rem;
+		}
+	}
+}

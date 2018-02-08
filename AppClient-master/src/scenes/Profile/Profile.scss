@@ -1,0 +1,129 @@
+.wrap {
+	@include content-typography;
+
+	h1 {
+		font-size: 3.6rem;
+		margin: 2rem 0 0;
+		color: $white;
+		font-weight: 400;
+		letter-spacing: 1px;
+	}
+
+	h3 {
+		margin: 0 0 1rem;
+		color: $white;
+		font-size: 2rem;
+		font-weight: 400;
+	}
+
+	.content {
+		@include container;
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: space-between;
+
+		section {
+			order: 1;
+		}
+
+		&.buttons {
+			margin-bottom: 2.8rem;
+		}
+
+		&:last-child {
+			border-bottom: 1px solid darken($light-gray, 10%);
+		}
+	}
+
+	.btnWrap {
+		display: flex;
+		width: 100%;
+
+		.btn {
+			padding: .8rem;
+			flex-grow: 1;
+			margin-bottom: 1.618rem;
+			font-size: 2.2rem;
+
+			&.active {
+				color: #fff;
+				background-color: $orange;
+			}
+		}
+	}
+
+	.aboutWrap {
+		background-color: $bg-gray;
+		margin: 0 0 - $container-padding;
+		padding: 4rem $container-padding;
+	}
+
+	.unlistedGroup {
+		display: inline-flex;
+		flex-grow: 1;
+	}
+
+	.plus {
+		cursor: pointer;
+		margin-left: 1rem;
+		margin-top: .3rem;
+		stroke: $dark-gray;
+
+		line {
+			stroke-width: 1.5;
+		}
+
+		&:hover {
+			stroke: $white;
+			fill: $orange;
+		}
+	}
+}
+
+@include medium {
+	.wrap {
+		.avatar {
+			position: absolute;
+			bottom: 0;
+			margin-bottom: -60px;
+		}
+
+		.avatarText {
+			position: absolute;
+			bottom: 1rem;
+			margin-left: 180px;
+		}
+
+		.content {
+			flex-direction: row;
+			padding: 0 10rem;
+
+			section,
+			aside {
+				width: 47%;
+				order: 0;
+			}
+
+			&.buttons {
+				justify-content: flex-end;
+				flex-direction: row;
+				margin-bottom: 2rem;
+			}
+
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+
+		.btnWrap {
+			width: 47%;
+			margin-top: -5.4rem;
+		}
+
+		.aboutWrap {
+			background-color: transparent;
+			margin: 0 0 4.6rem;
+			padding: 0;
+		}
+	}
+}

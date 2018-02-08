@@ -1,0 +1,49 @@
+.block {
+	margin-bottom: 2rem;
+}
+
+.line {
+	content: '';
+	display: inline-block;
+	width: 67%;
+	height: 1.618rem;
+	margin-bottom: 1rem;
+	border-radius: 2px;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-name: placeHolderShimmer;
+	animation-timing-function: linear;
+	background-image: linear-gradient(to right, $preload-1 10%, $preload-2 30%, $preload-1 90%);
+	background-size: 100vw;
+	position: relative;
+
+	&:nth-child(2n) {
+		width: 95%;
+	}
+
+	&:nth-child(3n) {
+		width: 85%;
+	}
+
+	&:nth-child(5n) {
+		width: 55%;
+	}
+
+	&:nth-child(6n) {
+		width: 68%;
+	}
+
+
+	// background-color: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+}
+
+@keyframes placeHolderShimmer {
+	0% {
+		background-position: -100vw 0;
+	}
+
+	100% {
+		background-position: 100vw 0;
+	}
+}

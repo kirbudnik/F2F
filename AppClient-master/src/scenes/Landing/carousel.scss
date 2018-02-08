@@ -1,0 +1,62 @@
+:global {
+	.carousel.carousel-slider {
+		.control-arrow {
+			&:hover {
+				background: none;
+			}
+
+			&::before {
+				width: 1.6em;
+				height: 2em;
+				background-repeat: no-repeat;
+				background-image: url('./arrow.svg');
+			}
+
+			&.control-next {
+				&::before {
+					border: 0;
+				}
+			}
+
+			&.control-prev {
+				&::before {
+					border: 0;
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		.control-dots {
+			display: none;
+		}
+	}
+}
+
+@include medium {
+	:global {
+		.carousel.carousel-slider {
+			.control-arrow {
+				&::before {
+					width: 2em;
+				}
+			}
+
+			.control-dots {
+				display: block;
+				padding: 1rem;
+			}
+		}
+	}
+}
+
+@include large {
+	:global {
+		.carousel.carousel-slider {
+			.control-arrow {
+				&:hover {
+					background: rgba(0, 0, 0, .2);
+				}
+			}
+		}
+	}
+}

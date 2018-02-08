@@ -1,0 +1,26 @@
+version: "2.1"
+
+services:
+  appredis:
+    restart: always
+    image: redis:latest
+    expose:
+      - "6379"
+
+  appapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./container:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+
+  appmongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017"

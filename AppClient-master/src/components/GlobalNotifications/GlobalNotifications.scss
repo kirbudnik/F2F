@@ -1,0 +1,9 @@
+.wrap {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	margin: 2rem;
+	width: calc(100% - 4rem);
+	max-width: 480px;
+	z-index: 20;
+}

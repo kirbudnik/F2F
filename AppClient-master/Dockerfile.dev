@@ -1,0 +1,11 @@
+FROM nginx
+
+COPY nginxBuilder.sh /
+RUN chmod +x /nginxBuilder.sh
+
+COPY nginx.conf /etc/nginx/
+COPY mime.types /etc/nginx/
+
+COPY dev_keys /run/
+
+CMD /nginxBuilder.sh

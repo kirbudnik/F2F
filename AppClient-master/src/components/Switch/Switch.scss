@@ -1,0 +1,70 @@
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 6rem;
+	height: 2.8rem;
+	line-height: 2.8rem;
+	flex: 0 0 auto !important; // sass-lint:disable-line no-important
+	font-weight: 500;
+
+	&.disabled {
+		opacity: .4;
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transition: .4s;
+		border-radius: 1.5rem;
+		background-color: darken($bc-aside-bg-light, 10%);
+		text-align: right;
+		padding: 0 1rem;
+		color: $light-gray;
+
+		&::before {
+			position: absolute;
+			content: '';
+			height: 2.2rem;
+			width: 2.2rem;
+			left: .3rem;
+			bottom: .3rem;
+			background-color: $light-gray;
+			transition: .4s;
+			border-radius: 50%;
+		}
+	}
+
+	input {
+		display: none;
+
+		&:checked {
+			+ .slider {
+				background-color: $orange;
+				text-align: left;
+				color: $white;
+
+				&::before {
+					transform: translateX(3rem);
+				}
+			}
+		}
+	}
+
+	&.light {
+		transform: scale(.85);
+		margin: .6rem 0;
+
+		.slider {
+			color: $white;
+			background-color: $gray;
+
+			&::before {
+				background-color: $white;
+			}
+		}
+	}
+}

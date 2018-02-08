@@ -1,0 +1,42 @@
+.wrap {
+	display: flex;
+	align-items: center;
+	font-size: 2.4rem;
+	color: $bc-icon-color;
+
+	.icon {
+		cursor: pointer;
+	}
+
+	.bar {
+		box-sizing: border-box;
+		cursor: pointer;
+		border: 1px solid $gray;
+		width: 100px;
+		content: '';
+		position: relative;
+		border-radius: 4px;
+		margin-left: 1rem;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: -8px;
+			bottom: -8px;
+			left: -5px;
+			right: -5px;
+		}
+
+		.circle {
+			cursor: pointer;
+			width: 17px;
+			height: 17px;
+			margin-top: -8px;
+			margin-left: -8px;
+			border-radius: 50%;
+			background-color: $orange;
+			position: absolute;
+			content: '';
+		}
+	}
+}

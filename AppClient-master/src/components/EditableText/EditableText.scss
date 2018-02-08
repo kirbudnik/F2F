@@ -1,0 +1,58 @@
+.icon {
+	border: 1px solid $dark-gray;
+	border-radius: 50%;
+	width: 26px;
+	height: 26px;
+	padding: 3px;
+	display: inline-block;
+	cursor: pointer;
+	margin: 0 1rem;
+
+	&.active,
+	&:hover {
+		background-color: $orange;
+		color: $orange;
+		border-color: $white;
+
+		polygon {
+			fill: $white;
+		}
+	}
+
+	&:hover {
+		opacity: .9;
+	}
+}
+
+.editing {
+	font-size: .8em;
+	font-weight: 300;
+	color: $orange;
+}
+
+.textarea {
+	font-family: 'Source Sans Pro', 'Lato', sans-serif;
+	color: $font-gray;
+	font-weight: $font-weight;
+	line-height: 1.5;
+	border: 1px solid $gray;
+	padding: calc(2rem - 1px);
+	margin: -2rem -2rem 1.618rem;
+	box-shadow: inset 0 0 10px $light-shadow;
+	background-color: $light-gray;
+}
+
+.buttonGroup {
+	text-align: right;
+	margin-bottom: 2.8rem;
+
+	.save {
+		font-size: 2.4rem;
+	}
+}
+
+@include large {
+	.buttonGroup {
+		margin-right: -2rem;
+	}
+}

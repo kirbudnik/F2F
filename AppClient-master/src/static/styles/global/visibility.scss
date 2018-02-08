@@ -1,0 +1,49 @@
+// sass-lint:disable no-important
+:global {
+	.hide,
+	.show-mobile-portrait-only,
+	.show-mobile-landscape-only,
+	.show-medium,
+	.show-large,
+	.show-xlarge {
+		display: none !important;
+	}
+
+	@include small-portrait {
+		.show-mobile-portrait-only {
+			display: inherit !important;
+		}
+	}
+
+	@include small-landscape {
+		.show-mobile-landscape-only {
+			display: inherit !important;
+		}
+	}
+
+	@include medium {
+		.hide-medium {
+			display: none !important;
+		}
+
+		.show-medium {
+			display: inherit !important;
+		}
+	}
+
+	@include large {
+		.hide-large {
+			display: none !important;
+		}
+
+		.show-large {
+			display: inherit !important;
+		}
+	}
+
+	@include xlarge {
+		.show-xlarge {
+			display: inherit !important;
+		}
+	}
+}

@@ -1,0 +1,88 @@
+:global {
+	[data-simplebar] {
+		position: relative;
+		z-index: 0;
+		overflow: hidden;
+		-webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
+	}
+
+	[data-simplebar='init'] {
+		display: flex;
+	}
+
+	.simplebar-scroll-content {
+		overflow-x: hidden;
+		overflow-y: scroll;
+		min-width: 100%;
+		box-sizing: content-box;
+		margin-bottom: 3px !important; // sass-lint:disable-line no-important
+	}
+
+	.simplebar-content {
+		// overflow-x: scroll; // If we need horizontal scroll need to uncomment it and check all again
+		overflow-y: hidden;
+		box-sizing: border-box;
+		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 3px !important; // sass-lint:disable-line no-important
+	}
+
+	.simplebar-scrollbar {
+		position: absolute;
+		right: 0;
+		border-radius: 6px;
+		min-height: 6px;
+		width: 6px;
+		opacity: 0;
+		transition: opacity .2s linear;
+		background-color: $gray;
+		background-clip: padding-box;
+
+		&:hover {
+			.simplebar-scrollbar {
+				opacity: .9;
+				transition: opacity 0 linear;
+			}
+		}
+	}
+
+	.simplebar-track {
+		z-index: 1;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 6px;
+		border-radius: 6px;
+
+		&.horizontal {
+			left: 0;
+			width: auto;
+			height: 6px;
+
+			.simplebar-scrollbar {
+				right: auto;
+				top: 0;
+				height: 6px;
+				min-height: 0;
+				min-width: 6px;
+				width: auto;
+			}
+		}
+
+		&.vertical {
+			top: 0;
+			margin: 1rem 1px;
+
+			.simplebar-scrollbar {
+				margin-top: -2px;
+			}
+		}
+
+		.simplebar-scrollbar {
+			&.visible {
+				opacity: .9;
+			}
+		}
+	}
+}

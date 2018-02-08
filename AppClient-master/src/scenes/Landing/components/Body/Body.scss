@@ -1,0 +1,100 @@
+// F2F BODY
+
+.f2fBody {
+	padding: 8.4rem 6rem;
+	text-align: center;
+
+	.f2fBodyInner {
+		max-width: 120rem;
+	}
+
+	.btnWrap {
+		height: 6.5em;
+	}
+
+	h2 {
+		margin-top: 0;
+		font-size: 3.2rem;
+		font-weight: normal;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	p {
+		margin-right: auto;
+		margin-bottom: 4rem;
+		margin-left: auto;
+		max-width: 50rem;
+		color: #999;
+		line-height: 3rem;
+		font-size: 1.8rem;
+	}
+
+	.btnContainer {
+		margin-top: 3rem;
+		margin-bottom: 1.5rem;
+	}
+}
+
+@media (min-width: 760px) {
+	.f2fBody {
+		.btnContainer {
+			.f2fBtn {
+				width: 22rem;
+				padding-top: 2rem;
+				padding-bottom: 2rem;
+				font-size: 1.8rem;
+			}
+		}
+
+		h2 {
+			max-width: 32rem;
+		}
+
+		p {
+			max-width: 48rem;
+			line-height: 3.6rem;
+			font-size: 2.4rem;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.f2fBody {
+		padding: 10rem 6rem;
+
+		.f2fBodyInner {
+			margin: 0 auto;
+			padding: 10rem;
+		}
+
+		h2 {
+			font-size: 4.8rem;
+			max-width: 48rem;
+		}
+
+		p {
+			max-width: 65rem;
+			line-height: 4rem;
+			font-size: 2.4rem;
+			font-weight: 400;
+		}
+
+		.btnContainer {
+			margin-top: 5.25rem;
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+	.f2fBody {
+		.btnContainer {
+			.f2fBtn {
+				width: 30rem;
+				padding-top: 2.4rem;
+				padding-bottom: 2.4rem;
+				font-size: 2.4rem;
+			}
+		}
+	}
+}

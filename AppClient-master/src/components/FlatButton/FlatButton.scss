@@ -1,0 +1,44 @@
+.flatButton {
+	display: inline-block;
+	text-align: center;
+	color: $medium-gray;
+	border: 1px solid $medium-gray;
+	border-radius: $button-border-radius;
+	padding: .6em 1.618em;
+	transition: background .2s, color .4s;
+
+	&:focus,
+	&:hover {
+		color: $white;
+		background-color: $medium-gray;
+	}
+
+	&.orange {
+		color: $orange;
+		border-color: $orange;
+
+		&:focus,
+		&:hover {
+			color: $white;
+			background-color: $orange;
+		}
+	}
+
+	&.primary {
+		background-color: $primary-button-color;
+		border-color: $primary-button-color;
+		color: $white;
+		transition: opacity .3s;
+
+		&:focus,
+		&:hover {
+			opacity: .9;
+		}
+	}
+}
+
+@include large {
+	.flatButton {
+		padding: .3em 1.618em;
+	}
+}

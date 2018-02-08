@@ -1,0 +1,142 @@
+:global {
+	body {
+		&.modal-open {
+			overflow: hidden;
+		}
+	}
+
+	.ReactModal__Overlay {
+		opacity: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		z-index: 100;
+		font-size: 1.8rem;
+		display: flex;
+		text-align: center;
+
+
+		&.ReactModal__Overlay--after-open {
+			opacity: 1;
+			transition: opacity 150ms ease-out;
+		}
+
+		.ReactModal__Content {
+			margin: auto;
+			transform: scale(.5) rotateX(-30deg);
+			box-shadow: 0 0 10px $alpha-shadow;
+
+			&.modal-dialog {
+				border: 0;
+				background-color: transparent;
+				margin: 1rem;
+			}
+		}
+
+		.ReactModal__Content--after-open {
+			transform: scale(1) rotateX(0deg);
+			transition: all 150ms ease-in;
+		}
+
+		&.ReactModal__Overlay--before-close {
+			opacity: 0;
+		}
+
+		.ReactModal__Content--before-close {
+			transform: scale(.5) rotateX(30deg);
+			transition: all 150ms ease-in;
+		}
+
+		h2 {
+			color: $orange;
+			margin: 0;
+			font-size: 1.6em;
+		}
+
+		h2,
+		h3 {
+			font-weight: 300;
+		}
+
+		ul {
+			color: $gray;
+			list-style: disc;
+			text-align: left;
+			font-size: 1.5rem;
+
+			li {
+				margin-bottom: .618rem;
+			}
+		}
+	}
+
+	input {
+		&[type='text'] {
+			border: 0;
+			background-color: $light-gray;
+			padding: 1.618rem;
+			width: 100%;
+			margin-bottom: 1.618rem;
+			font-weight: 300;
+		}
+	}
+
+	.modal-submit {
+		color: $white;
+		background-color: $primary-button-color;
+		border: 0;
+		border-radius: 2.6rem;
+		padding: 1rem 4rem;
+		font-size: 2.6rem;
+		font-weight: 300;
+		cursor: pointer;
+		transition: opacity .4s;
+
+		&:hover {
+			opacity: .9;
+		}
+	}
+}
+
+.close {
+	position: absolute;
+	right: 2rem;
+	top: 2rem;
+	cursor: pointer;
+	transition: opacity .4s;
+
+	&:hover {
+		opacity: .6;
+	}
+}
+
+@include medium {
+	:global {
+		.ReactModal__Overlay {
+			h2 {
+				font-size: 1.8em;
+			}
+		}
+	}
+}
+
+.alert {
+	h3 {
+		font-size: 1.4em;
+		margin-top: 0;
+	}
+
+	button {
+		border: 2px solid $white;
+		background: transparent;
+		color: $white;
+		padding: 1rem 4rem;
+		margin: 0 1rem;
+		border-radius: $button-border-radius;
+		transition: color .3s, background-color .3s;
+
+		&:hover {
+			color: $bg-alert;
+			background-color: $white;
+		}
+	}
+}

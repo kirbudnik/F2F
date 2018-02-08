@@ -1,0 +1,18 @@
+.spinner {
+	position: absolute;
+	width: 6rem;
+	height: 6rem;
+	left: calc(50% - 3rem);
+	top: calc(50% - 3rem);
+	background-image: url('images/svg/spinner-orange.svg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
+
+	&.inline {
+		position: static;
+		width: 18px;
+		height: 18px;
+		display: block;
+	}
+}

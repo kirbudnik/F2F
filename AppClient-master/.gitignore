@@ -1,0 +1,8 @@
+node_modules/
+npm-debug.log
+.env
+dist/build/
+coverage/
+.storybook_static/
+package-lock.json
+/dev_keys/secrets/*

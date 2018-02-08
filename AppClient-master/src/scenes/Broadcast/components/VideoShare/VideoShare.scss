@@ -1,0 +1,136 @@
+.wrap {
+	display: flex;
+	align-items: center;
+	color: $bc-icon-color;
+	padding: 1rem;
+
+	.shareIcon {
+		margin-right: 1rem;
+		cursor: pointer;
+	}
+
+	.largeLink {
+		position: relative;
+	}
+
+	.largeCopy {
+		position: absolute;
+		right: -7rem;
+		width: 6rem;
+		color: $orange;
+		user-select: none;
+		font-weight: 300;
+		font-size: .9em;
+		margin-top: .1em;
+		opacity: 0;
+		transition: opacity .5s;
+
+		&:hover {
+			color: lighten($orange, 15%);
+		}
+	}
+
+	&:hover {
+		.largeCopy {
+			opacity: 1;
+			transition: opacity .2s;
+		}
+	}
+}
+
+.overlay {
+	min-width: 16rem;
+	padding: 1rem;
+}
+
+.copyGroup {
+	margin: 1.6rem 0 1rem;
+
+	.input {
+		width: 100%;
+		min-width: 24rem;
+		text-align: center;
+		background-color: $light-gray;
+		border: 0;
+		padding: 1rem;
+		font-weight: 300;
+		font-size: .9em;
+		margin-bottom: 1rem;
+		color: $dark-gray;
+	}
+
+	.copy {
+		background-color: $orange;
+		color: $white;
+		display: block;
+		border: 0;
+		padding: .6rem;
+		border-radius: 3px;
+		font-size: 1.6rem;
+		font-weight: 400;
+
+		&:hover {
+			background-color: darken($orange, 5%);
+		}
+	}
+}
+
+.socialIcons {
+	display: flex;
+	justify-content: center;
+	justify-content: space-evenly; // sass-lint:disable-line no-duplicate-properties
+	align-items: center;
+
+	a {
+		padding: 1rem 1rem 0;
+
+		svg {
+			polyline {
+				stroke-width: 2;
+			}
+
+			path,
+			polyline,
+			rect {
+				stroke: $white;
+				fill: $gray;
+				transition: fill .2s;
+			}
+		}
+
+		&:hover {
+			svg {
+				path,
+				polyline,
+				rect {
+					fill: $orange;
+				}
+			}
+		}
+	}
+}
+
+
+h4 {
+	&.header {
+		font-size: 2rem;
+		margin: .6rem 0;
+		text-align: center;
+		font-weight: 300;
+	}
+}
+
+@include medium {
+	.wrap {
+		.shareIcon {
+			stroke: $medium-gray;
+			stroke-width: .85;
+			width: 18px;
+			height: 18px;
+
+			&:hover {
+				stroke: $orange;
+			}
+		}
+	}
+}

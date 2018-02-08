@@ -1,0 +1,129 @@
+.wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	overflow: hidden;
+	background: $bc-video-background;
+
+	&.borderTop {
+		border-top: 2px solid $bc-video-background;
+		border-bottom: 2px solid $bc-video-background;
+	}
+
+	&.borderSides {
+		border-left: 2px solid $bc-video-background;
+		border-right: 2px solid $bc-video-background;
+	}
+
+	&.noBackground {
+		background: rgba(0, 0, 0, 0);
+		border: 0;
+	}
+
+	video {
+		position: absolute;
+		height: 100%;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+
+		&.connecting {
+			height: 0;
+		}
+	}
+
+	&.mirror video {
+		transform: translateX(-50%) scale(-1, 1);
+	}
+
+	.cover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $bc-video-background;
+	}
+
+	.noMedia {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		padding-bottom: 2rem;
+		justify-content: center;
+
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 6rem;
+			height: 6rem;
+
+			> svg {
+				filter: drop-shadow(0 0 1px $dark-shadow);
+			}
+		}
+	}
+
+	.audioLevel {
+		width: 75%;
+		padding-bottom: 75%;
+		border-radius: 50%;
+		background-color: #d9903c;
+		opacity: .3;
+	}
+
+	.spinner {
+		position: absolute;
+		left: calc(50% - 2rem);
+		top:  calc(50% - 2rem);
+		width: 80%;
+		max-width: 4rem;
+	}
+
+	.username {
+		position: absolute;
+		left: 0;
+		bottom: 1%;
+		width: 100%;
+		text-align: center;
+		font-size: 1.4rem;
+		color: #fff;
+		text-shadow: -1px 0 #666, 0 1px #666, 1px 0 #666, 0 -1px #666;
+		overflow: hidden;
+		display: block;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		padding: 0 .6rem;
+	}
+
+	&.noBackground .username {
+		display: none;
+	}
+
+	.x {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		opacity: 0;
+		cursor: pointer;
+	}
+
+	&:hover .x {
+		opacity: 1;
+	}
+}
+
+@include medium {
+	.wrap {
+		.username {
+			font-size: 1.6rem;
+		}
+	}
+}
+

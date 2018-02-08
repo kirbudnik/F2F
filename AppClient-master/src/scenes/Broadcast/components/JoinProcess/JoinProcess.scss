@@ -1,0 +1,47 @@
+.wrap {
+	.button {
+		color: $white;
+		display: flex;
+		align-items: center;
+		margin-bottom: 2rem;
+		width: 100%;
+		border: 0;
+		padding: 1.618rem 3rem;
+		text-align: left;
+		font-size: 2.2rem;
+		cursor: pointer;
+		transition: opacity .4s;
+
+
+		svg {
+			margin-right: 1.618rem;
+		}
+
+		&.video {
+			background: $orange;
+		}
+
+		&.mic {
+			background: $bc-botton-color;
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+
+	p {
+		text-align: center;
+		font-size: 1.6rem;
+		margin-bottom: 0;
+		color: $dark-gray;
+		line-height: 1.5;
+	}
+
+	h2 {
+		span {
+			font-size: 2em;
+			vertical-align: middle;
+		}
+	}
+}

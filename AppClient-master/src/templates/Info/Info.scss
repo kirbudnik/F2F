@@ -1,0 +1,39 @@
+.wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 1;
+	font-weight: $font-weight;
+	font-size: $font-size;
+	color: $white;
+	align-items: center;
+	text-align: center;
+	background-color: $dark-gray;
+	background-size: cover;
+	background-image: linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .55)), url('images/banner/contact.jpg');
+	background-position: center;
+	padding-top: 4.6rem;
+	padding-bottom: 4.6rem;
+
+	h1,
+	p {
+		text-shadow: 0 0 3px $dark-gray;
+	}
+
+	h1 {
+		font-size: 8.2rem;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	p {
+		font-size: 2.6rem;
+		line-height: 1.4;
+		max-width: 460px;
+		margin: 3rem auto 8rem;
+	}
+
+	.inner {
+		@include container;
+	}
+}

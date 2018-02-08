@@ -1,0 +1,93 @@
+$stripe-color: #0f93df;
+
+.colorSelector {
+	@include clear-button;
+	height: 2.4rem;
+	width: 2.4rem;
+	margin-right: .6rem;
+	border: 1px solid darken($light-gray, 10%);
+	border-radius: 3px;
+
+	&:hover {
+		box-shadow: 0 0 4px $medium-shadow;
+	}
+}
+
+.preview {
+	border-top: 2px solid $input-background-color;
+	text-align: center;
+	min-height: 40rem;
+
+	h5 {
+		text-align: center;
+		font-size: 2.2rem;
+		color: $gray;
+		font-weight: 300;
+	}
+}
+
+.stripe {
+	> div {
+		> :first-child {
+			width: auto !important; // sass-lint:disable-line no-important
+		}
+	}
+
+	p {
+		color: $gray;
+		font-weight: 400;
+	}
+
+	.unlink {
+		color: $orange;
+	}
+
+	.stripeBtn,
+	.stripeBtnConnect {
+		background-color: $stripe-color;
+		color: $white;
+		border: 0;
+		display: flex;
+		align-items: flex-end;
+		padding: 1rem 2rem;
+		margin-right: 2rem;
+
+		svg {
+			margin-left: 1rem;
+			margin-bottom: -.13rem;
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+
+	.stripeBtnConnect {
+		background-color: $white;
+		color: $stripe-color;
+		border: 1px solid $stripe-color;
+
+		svg {
+			path,
+			polygon,
+			rect {
+				fill: $stripe-color;
+			}
+		}
+	}
+}
+
+.subText {
+	order: 2;
+	padding: 1.2rem;
+}
+
+@include large {
+	.preview {
+		padding-left: 3.4rem;
+		margin-left: 3.4rem;
+		border-top: 0;
+		border-left: 2px solid $input-background-color;
+		flex: 0 0 240px;
+	}
+}

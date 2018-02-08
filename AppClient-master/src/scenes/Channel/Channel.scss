@@ -1,0 +1,130 @@
+.wrap {
+	@include content-typography;
+
+	.info {
+		text-align: center;
+		max-width: 380px;
+		margin: 0 auto 6rem;
+
+		> div {
+			margin: 1rem auto;
+		}
+
+		h1 {
+			font-size: 3.6rem;
+			margin-bottom: .618rem;
+		}
+
+		h3 {
+			font-size: 2.6rem;
+			color: $orange;
+		}
+	}
+
+	.content {
+		@include container;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-bottom: 2rem;
+	}
+
+
+	.owner {
+		position: absolute;
+		align-items: center;
+		display: flex;
+		align-self: flex-end;
+		color: $white;
+
+		.avatar {
+			border: 1px solid $white;
+			flex: 1;
+			box-shadow: 0 0 2px 2px $light-shadow;
+			transition: opacity .3s;
+		}
+
+		> span {
+			color: $white;
+			font-size: 2rem;
+			font-weight: 300;
+			min-width: 180px;
+			transition: color .3s;
+		}
+
+		&:hover {
+			> span {
+				color: rgba($white, .7);
+			}
+
+			.avatar {
+				opacity: .7;
+			}
+		}
+	}
+
+	.startBtn {
+		display: block;
+		margin: 0 auto 6rem;
+		max-width: 32rem;
+		padding: .6em 1.618em;
+	}
+
+	.broadcastInfo {
+		position: relative;
+
+		> p {
+			position: absolute;
+			font-size: 3rem;
+			font-weight: 400;
+			color: $white;
+			text-align: center;
+			width: 100%;
+			bottom: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	&.isOwner {
+		.content {
+			margin-bottom: 6rem;
+
+			section {
+				order: 1;
+			}
+		}
+	}
+}
+
+@include medium {
+	.wrap {
+		.info {
+			> div {
+				margin-top: -180px;
+			}
+		}
+
+		.content {
+			flex-direction: row;
+			padding: 0 10rem;
+
+			section,
+			aside {
+				width: 47%;
+				order: 1;
+			}
+		}
+	}
+}
+
+@include large {
+	.wrap {
+		.startBtn {
+			border-width: 2px;
+			padding: 1.4rem;
+			font-size: 2.6rem;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}

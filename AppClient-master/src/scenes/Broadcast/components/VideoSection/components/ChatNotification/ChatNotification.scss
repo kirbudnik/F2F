@@ -1,0 +1,55 @@
+.dot {
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	content: '';
+	background-color: $orange;
+	border: 2px solid $white;
+	position: absolute;
+	top: 2.4rem;
+	right: 0;
+	margin: -4px;
+	zoom: .1;
+	opacity: 0;
+
+	&.active {
+		zoom: 1;
+		opacity: 1;
+		animation: chat-notification 1.2s;
+	}
+}
+
+@include small-landscape {
+	.dot {
+		border-color: $bc-aside-bg-light;
+	}
+}
+
+@include medium {
+	.dot {
+		border-color: $bc-aside-bg-light;
+		top: 1.6rem;
+		right: 0;
+		width: 9px;
+		height: 9px;
+	}
+}
+
+@keyframes chat-notification {
+	0% {
+		opacity: 0;
+	}
+
+	30% {
+		opacity: .8;
+	}
+
+	50% {
+		opacity: .5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

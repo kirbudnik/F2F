@@ -1,0 +1,94 @@
+version: "3.3"
+
+services:
+  appclient:
+    image: registry.f2f.live:5000/appclient:${ENVIRONMENT}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "15973:15973"
+    secrets:                   
+      - fullchain.pem
+      - privkey.pem
+    env_file:
+      - .appclient.env
+    networks:
+      - appnet
+    deploy:
+      mode: replicated
+      replicas: 3
+      #placement:
+        #constraints:
+          #- engine.labels.type == manager
+
+  appapi:
+    image: registry.f2f.live:5000/appapi:${ENVIRONMENT}
+    env_file:
+      - .appapi.env
+    ports:
+      - "3000:3000"
+    configs:
+      - source: credentials
+        target: /root/.aws/credentials
+    networks:
+      - dbnet
+      - appnet
+    deploy:
+      mode: replicated
+      replicas: 3
+      #placement:
+        #constraints:
+          #- engine.labels.type == manager
+
+  appredis:
+    image: redis:latest
+    volumes:
+      - appredis:/data
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - appnet 
+
+  appmongo:
+    image: mongo
+    volumes:
+      - appmongo:/data/db
+    healthcheck:
+      test: ["CMD-SHELL", "mongo --quiet --eval 'db.runCommand({ ping: 1 })' | grep ok"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - dbnet
+
+networks:
+  appnet:
+    driver: overlay
+    attachable: true
+  dbnet:
+    driver: overlay
+    attachable: true
+    driver_opts:
+      encrypted: "true"
+  outside:
+    external:
+      name: "host"
+
+volumes:
+  appredis:
+    external: true
+  appmongo:
+    external: true
+
+secrets:                        # top level secrets block
+  fullchain.pem:
+    file: /etc/letsencrypt/live/f2f.live/fullchain.pem
+  privkey.pem:
+    file: /etc/letsencrypt/live/f2f.live/privkey.pem
+
+configs:
+  credentials:
+    file: ./configs/credentials

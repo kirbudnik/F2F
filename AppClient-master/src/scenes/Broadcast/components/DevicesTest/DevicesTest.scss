@@ -1,0 +1,42 @@
+.wrap {
+	label {
+		display: block;
+		margin-bottom: 1.618rem;
+		text-align: left;
+
+		select {
+			display: block;
+			height: 6rem;
+			width: 100%;
+			background: $light-gray;
+			min-width: 280px;
+			border: 0;
+		}
+	}
+
+	.tests {
+		display: flex;
+		justify-content: space-evenly;
+
+		.camera {
+			position: relative;
+			width: 162px;
+			height: 162px;
+			overflow: hidden;
+			border-radius: 50%;
+			background-color: $dark-gray;
+
+			video {
+				position: absolute;
+				height: 100%;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%) scale(-1, 1);
+			}
+		}
+	}
+
+	button {
+		margin-top: 2rem;
+	}
+}

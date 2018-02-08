@@ -1,0 +1,13 @@
+version: "2.1"
+
+# Network needed in dev mode to communicate with the video api
+networks:
+  # Send messages to the video api on localhost
+  dev_api-bridge:    
+    external: true
+
+services:
+  appapi:
+    networks:
+      - default
+      - dev_api-bridge

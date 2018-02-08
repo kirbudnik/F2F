@@ -1,0 +1,134 @@
+// F2F MIXINS
+@mixin flex-box	{
+	display: flex;
+}
+
+@mixin flex($values)	{
+	flex: $values;
+}
+
+@mixin flex-direction($values)	{
+	flex-direction: $values;
+}
+
+@mixin clearfix	{
+	&::after {
+		clear: both;
+		content: '';
+		display: block;
+	}
+}
+
+
+@mixin clear-button	{
+	background: none;
+	border: 0;
+}
+
+@mixin content-typography {
+	font-weight: $font-weight;
+	font-size: $font-size;
+
+	h1,
+	h2,
+	h3 {
+		margin: 0 0 1em;
+		font-weight: 300;
+	}
+
+	h1 {
+		font-size: 2.6rem;
+	}
+
+	h2 {
+		font-size: 1.4em;
+		display: flex;
+		align-items: center;
+	}
+
+	p {
+		padding-bottom: 1.618rem;
+		line-height: 1.5;
+		color: $font-gray;
+	}
+}
+
+@mixin small-only {
+	@media (max-width: #{$small-breakpoint}) {
+		@content;
+	}
+}
+
+@mixin small-portrait {
+	@media (max-width: #{$small-breakpoint}) and (orientation: portrait) {
+		@content;
+	}
+}
+
+@mixin small-landscape {
+	@media (max-width: #{$small-breakpoint}) and (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin medium {
+	@media (min-width: #{$medium}) {
+		@content;
+	}
+}
+
+@mixin large {
+	@media (min-width: #{$large}) {
+		@content;
+	}
+}
+
+@mixin xlarge {
+	@media (min-width: #{$xlarge}) {
+		@content;
+	}
+}
+
+@mixin container {
+	width: 100%;
+	max-width: $large;
+	padding-left: $container-padding;
+	padding-right: $container-padding;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@mixin container-fluid {
+	padding-left: $container-padding;
+	padding-right: $container-padding;
+
+	@media (min-width: #{$medium}) {
+		padding-left: $container-padding * 2;
+		padding-right: $container-padding * 2;
+	}
+}
+
+@mixin scroll-with-shadow($height: 2rem) {
+	@include small-only {
+		position: relative;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			height: $height;
+			position: absolute;
+			width: 100%;
+			z-index: 1;
+		}
+
+		&::before {
+			background-image: linear-gradient($bc-aside-content-bg 0%, rgba($bc-aside-content-bg, 0) 100%);
+		}
+
+		&::after {
+			background-image: linear-gradient(rgba($bc-aside-content-bg, 0) 0%, $bc-aside-content-bg 100%);
+			bottom: 0;
+		}
+	}
+}

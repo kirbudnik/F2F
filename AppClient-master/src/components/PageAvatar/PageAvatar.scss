@@ -1,0 +1,67 @@
+.avatar {
+	background-color: $bg-dark-gray;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 6rem;
+	color: $white;
+	font-weight: 300;
+	width: 100px;
+	height: 100px;
+	border: 2px solid $white;
+	margin: 8rem 1.618rem 1rem 0;
+	border-radius: $avatar-border-radius;
+	position: relative;
+	box-shadow: 0 0 2px 1px $light-shadow;
+	text-transform: uppercase;
+
+	.icon {
+		background: rgba($black, .6);
+		color: $white;
+		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+		padding: 4px;
+		display: inline-block;
+		transition: color .2s;
+	}
+
+	.avatarEdit {
+		cursor: pointer;
+		color: $white;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		font-size: 1.8rem;
+		transition: color .2s;
+		bottom: .6rem;
+		right: .6rem;
+
+		&:hover {
+			color: $orange;
+
+			.icon {
+				color: $orange;
+				border-color: $black;
+			}
+		}
+	}
+
+	&.circle {
+		border-radius: 50%;
+
+		.avatarEdit {
+			right: 50%;
+			margin-right: -13px;
+		}
+	}
+}
+
+@include medium {
+	.avatar {
+		width: 160px;
+		height: 160px;
+		font-size: 10rem;
+	}
+}

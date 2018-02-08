@@ -1,0 +1,118 @@
+$bubble-hover-bg: rgba($white, .5);
+
+.wrap {
+	width: 75px;
+	text-align: center;
+	padding: 0 1em;
+	position: relative;
+
+	p {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		margin: 0;
+	}
+
+	.avatarWrap {
+		position: relative;
+		cursor: pointer;
+
+		.avatar {
+			margin: 0 auto .1em;
+		}
+
+		> .plus,
+		> .loader {
+			position: absolute;
+			left: .5rem;
+			top: 0;
+			width: calc(100% - 1rem);
+			height: 100%;
+			background: $bubble-hover-bg;
+			border-radius: 50%;
+			transition: opacity .2s;
+		}
+
+		> .plus {
+			opacity: 0;
+			padding: 2px;
+		}
+
+		> .loader {
+			padding: .6rem;
+
+			> span {
+				position: absolute;
+				content: '';
+				display: block;
+				width: 1rem;
+				height: 1rem;
+				top: 1.6rem;
+				border-radius: 50%;
+				background-color: $white;
+				animation: bubble-loader 2.4s infinite ease;
+				opacity: 0;
+				left: .2rem;
+
+				&:last-child {
+					margin-top: .1rem;
+					width: .8rem;
+					height: .8rem;
+					animation-delay: .8s;
+				}
+			}
+		}
+	}
+
+	> svg {
+		position: absolute;
+		transform: scale(0);
+		right: -.6rem;
+		margin-top: -1rem;
+		cursor: pointer;
+		transition: transform .2s, fill .2s, stroke .2s;
+
+		&:hover {
+			fill: $black;
+			stroke: $white;
+		}
+	}
+}
+
+.username {
+	color: $orange;
+}
+
+@include medium {
+	.wrap {
+		.avatarWrap {
+			&:hover {
+				> .plus {
+					opacity: 1;
+				}
+			}
+		}
+
+		&:hover {
+			> svg {
+				transform: scale(1);
+			}
+		}
+	}
+}
+
+@keyframes bubble-loader {
+	0% {
+		left: .2rem;
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		left: 2.6rem;
+		opacity: 0;
+	}
+}

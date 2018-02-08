@@ -1,0 +1,18 @@
+.wrap {
+	border: 1px solid $gray;
+	width: 36px;
+	height: 162px;
+	position: relative;
+
+	span {
+		background-color: $orange;
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 5px;
+		width: 24px;
+		right: 5px;
+		max-height: 100%;
+		min-height: 4px;
+	}
+}

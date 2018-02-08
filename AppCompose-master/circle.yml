@@ -1,0 +1,19 @@
+machine:
+  node:
+    version: 8.5.0
+
+test:
+  override:
+    - echo "test"
+
+deployment:
+  production:
+    tag: production
+    owner: facetofacebroadcasting
+    commands:
+      - ./deploy.sh
+  staging:
+    tag: staging
+    owner: facetofacebroadcasting
+    commands:
+      - ./deploy.sh

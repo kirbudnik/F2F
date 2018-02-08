@@ -1,0 +1,71 @@
+.wrap {
+	position: absolute;
+	background-color: $white;
+	box-shadow: 0 0 5px $alpha-shadow;
+	border-radius: $button-border-radius;
+	margin-top: 6rem;
+	margin-right: 2rem;
+	font-size: 18px;
+
+	form {
+		> div {
+			padding: 1rem 2rem 2rem;
+			font-weight: 400;
+		}
+
+		label {
+			color: lighten($gray, 15%);
+			padding: 0;
+			font-size: 13px;
+		}
+
+		input {
+			background: transparent;
+			border-bottom: 2px solid lighten($gray, 20%);
+			padding: .2em 2em .2em 0;
+			margin-top: .6rem;
+			font-size: 1.6rem;
+
+			&::placeholder {
+				color: $gray;
+			}
+		}
+
+		button {
+			&[type='submit'] {
+				background-color: $orange;
+				border-radius: 50%;
+				border: 0;
+				color: $white;
+				position: absolute;
+				width: 18px;
+				height: 18px;
+				padding: 1px;
+				right: 2rem;
+			}
+		}
+	}
+
+	label {
+		border-radius: $button-border-radius $button-border-radius 0 0;
+		text-align: center;
+		font-size: 1.6rem;
+		padding: .6rem;
+	}
+
+	.link {
+		color: $orange;
+		margin-bottom: .618rem;
+	}
+
+	.note {
+		font-size: .8em;
+		color: lighten($gray, 15%);
+	}
+}
+
+@include large {
+	.wrap {
+		margin-top: 5rem;
+	}
+}

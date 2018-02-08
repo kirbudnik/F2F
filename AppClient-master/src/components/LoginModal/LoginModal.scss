@@ -1,0 +1,42 @@
+.loginWrap {
+	p {
+		max-width: 32rem;
+		padding: 0 0 1.6rem;
+	}
+
+	a {
+		display: block;
+		max-width: 32rem;
+		padding: 1rem 0 0;
+		color: $gray;
+		font-size: 1.25rem;
+	}
+
+	.social {
+		padding: 0;
+		margin: 0;
+
+		button {
+			cursor: pointer;
+			background: transparent;
+			border: 0;
+			padding: 0 1rem;
+
+			img {
+				width: 49px;
+			}
+		}
+	}
+}
+
+@include medium {
+	.loginWrap {
+		.social {
+			button {
+				img {
+					width: 98px;
+				}
+			}
+		}
+	}
+}

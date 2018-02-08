@@ -1,0 +1,56 @@
+version: "2.1"
+
+services:
+  appclient:
+    build:
+      context: ../AppClient
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - appapi
+    volumes:
+      - ../AppClient/dist:/app/dist
+    env_file:
+      - ../AppClient/.env
+    ports:
+      - "81:81"
+      - "444:444"
+      - "15973:15973"
+
+  appapi:
+    build:
+      context: ../AppApi
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ../AppApi/container:/app
+      - /app/node_modules
+    env_file:
+      - ../AppApi/.env
+    depends_on:
+      appredis:
+        condition: service_healthy
+      appmongo:
+        condition: service_healthy
+    ports:
+      - "3000"
+
+  appredis:
+    image: redis:latest
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    expose:
+      - "6379"
+
+  appmongo:
+    image: mongo
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "mongo --quiet --eval 'db.runCommand({ ping: 1 })' | grep ok"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    ports:
+      - "27017"

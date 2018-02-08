@@ -1,0 +1,127 @@
+.isLive,
+.notLive {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
+	background: $alpha-shadow;
+	color: $white;
+}
+
+.isLive {
+	padding: 1rem;
+	font-size: 1.6rem;
+	font-weight: 300;
+
+	.dot {
+		&::after {
+			width: 5px;
+			height: 5px;
+			display: inline-block;
+			background-color: $red;
+			border-radius: 50%;
+			content: '';
+			vertical-align: middle;
+			margin-left: 5px;
+		}
+	}
+
+	> div {
+		cursor: pointer;
+		padding: .618rem;
+		transition: .2s;
+
+		&:hover {
+			color: $orange;
+		}
+
+		> span {
+			display: none;
+			margin-left: 1rem;
+		}
+
+		svg {
+			vertical-align: middle;
+			margin-top: -3px;
+		}
+	}
+
+	&:hover {
+		> div {
+			> span {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.notLive {
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-weight: 300;
+	padding-top: 2rem;
+
+	h3 {
+		font-weight: 300;
+	}
+
+	.back {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 3.6rem 0 2rem;
+	}
+
+	.goLive {
+		font-size: 2rem;
+		background-color: $orange;
+		color: $white;
+		border: 0;
+		padding: .618em 4.6em;
+		transition: opacity 1s;
+		text-transform: uppercase;
+		font-weight: 300;
+		line-height: 1.6;
+		border-radius: 3px;
+
+		svg {
+			vertical-align: middle;
+			margin-right: 1rem;
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+
+	.checkGroup {
+		display: flex;
+		justify-content: center;
+
+		label {
+			display: flex;
+			align-items: center;
+			padding: 2rem;
+			cursor: pointer;
+			transition: opacity .2s;
+
+			span {
+				text-align: left;
+				line-height: 1;
+			}
+
+			svg {
+				margin-right: 1rem;
+			}
+
+			&:hover {
+				opacity: .8;
+			}
+		}
+	}
+}

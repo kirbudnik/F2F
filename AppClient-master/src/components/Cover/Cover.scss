@@ -1,0 +1,75 @@
+.cover {
+	background-color: $cover-default-backgound-color;
+	background-size: cover;
+	background-position: center;
+	margin-bottom: 8rem;
+	text-shadow: 0 0 1px $alpha-shadow;
+
+	.container {
+		@include container;
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding-top: 1rem;
+		height: 17.2414vw;
+		min-height: 84px;
+		max-height: 280px;
+	}
+
+	.icon {
+		background: rgba($black, .7);
+		color: $white;
+		border-radius: 50%;
+		width: 26px;
+		height: 26px;
+		padding: 4px;
+		display: inline-block;
+		transition: color .2s;
+		margin: 1rem;
+		box-shadow: 0 0 2px 1px $light-shadow;
+	}
+
+	.socialIcons {
+		position: absolute;
+		bottom: 1rem;
+		right: 0;
+		display: flex;
+
+		> button {
+			margin: 0 2rem;
+		}
+	}
+
+	.coverEdit {
+		cursor: pointer;
+		color: $white;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		font-size: 1.8rem;
+		font-weight: 300;
+		transition: color .2s;
+		top: 1rem;
+		right: 2rem;
+
+		&:hover {
+			.icon {
+				color: $orange;
+				border-color: $black;
+			}
+		}
+	}
+}
+
+
+@include medium {
+	.cover {
+		.container {
+			padding: 0 10rem;
+		}
+
+		.socialIcons {
+			bottom: 2rem;
+		}
+	}
+}

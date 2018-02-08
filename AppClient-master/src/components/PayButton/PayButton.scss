@@ -1,0 +1,232 @@
+.btn {
+	@include clear-button;
+	color: #fff;
+	border-radius: 1.6rem;
+	line-height: 1;
+	padding: .6rem 2rem;
+	display: inline-block;
+	font-size: 1.6rem;
+	transition: opacity .4s, background-color .2s;
+	border: 1px solid transparent;
+
+	&.light {
+		color: $dark-gray;
+		border-color: $dark-gray;
+	}
+
+
+	&:hover {
+		opacity: .8;
+	}
+}
+
+.panel {
+	padding: 2rem;
+	font-size: 1.4rem;
+	border-radius: 4px;
+	text-align: center;
+	background-color: $white;
+	font-weight: 400;
+	color: $dark-gray;
+	text-shadow: none;
+	z-index: 20;
+	box-shadow: 0 0 7px $alpha-shadow;
+	margin-right: .6rem;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	min-width: 16rem;
+
+	&.loading {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		h3 {
+			color: $orange;
+			font-size: 2rem;
+			margin: 0;
+			font-weight: 300;
+		}
+
+		.spinner {
+			width: 4rem;
+			height: 4rem;
+			margin: 2rem;
+		}
+	}
+
+	&.success {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-width: 26rem;
+
+		.avatar {
+			margin: 0;
+		}
+
+		h2 {
+			color: $orange;
+			font-size: 2.6rem;
+			margin: 2rem 0 1.6rem;
+			font-weight: 300;
+		}
+
+		h3 {
+			margin: 1.6rem 0 0;
+			font-size: 1.8rem;
+		}
+
+		p {
+			font-size: 1.8rem;
+			font-weight: 300;
+			color: $dark-gray;
+			margin: 0 0 2rem;
+		}
+	}
+
+	.amounts {
+		display: flex;
+
+		> button {
+			@include clear-button;
+			background-color: $light-gray;
+			border-radius: 1px;
+			flex: 1;
+			justify-content: space-between;
+			margin: 0 .6rem 1rem;
+			color: $dark-gray;
+			padding: 1rem;
+			font-weight: 300;
+			font-size: 12px;
+
+			&.active {
+				background-color: $orange;
+				color: $white;
+			}
+		}
+	}
+
+	label {
+		display: flex;
+		align-items: center;
+		border: 2px solid $light-gray;
+		background-color: $light-gray;
+		justify-content: space-between;
+		font-size: 12px;
+		color: $dark-gray;
+		margin: 0 auto 1rem;
+		width: calc(100% - 1.2rem);
+		cursor: pointer;
+
+		&.active {
+			background-color: $orange;
+			color: $white;
+		}
+
+		span {
+			flex: 1;
+		}
+
+		input {
+			background-color: $white;
+			padding: .8rem 0;
+			width: 50%;
+			color: $dark-gray;
+			text-align: center;
+			border: 0;
+		}
+	}
+
+	&::after,
+	&::before {
+		bottom: 100%;
+		left: 80%;
+		border: solid transparent;
+		content: '';
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&::after {
+		border-color: rgba($light-gray, 0);
+		border-bottom-color: $white;
+		border-width: 8px;
+		margin-left: -8px;
+	}
+
+	&::before {
+		border-color: rgba($white, 0);
+		border-bottom-color: $light-gray;
+		border-width: 10px;
+		margin-left: -10px;
+	}
+
+	&.isOpen {
+		display: block;
+	}
+
+	&.preview {
+		position: relative;
+		border: 2px solid $light-gray;
+		box-shadow: none;
+
+		&::after,
+		&::before {
+			left: 50%;
+		}
+	}
+}
+
+.desc {
+	max-width: 180px;
+	margin: 0 auto;
+}
+
+.small {
+	font-size: .8em;
+	color: $gray;
+}
+
+.payBtn {
+	@include clear-button;
+	border-radius: 2px;
+	color: $white;
+	background-color: $primary-button-color;
+	padding: 1rem;
+	margin: .6rem 0;
+	width: calc(100% - 1.2rem);
+	transition: background-color .4s;
+
+	&:hover {
+		background-color: lighten($primary-button-color, 5%);
+	}
+}
+
+@include medium {
+	.panel {
+		&::after,
+		&::before {
+			left: 75%;
+		}
+	}
+
+	.btn {
+		min-width: 120px;
+	}
+}
+
+@include large {
+	.panel {
+		&::after,
+		&::before {
+			left: 50%;
+		}
+	}
+
+	.btn {
+		min-width: 120px;
+	}
+}

@@ -1,0 +1,40 @@
+.wrap {
+	display: flex;
+	align-items: center;
+	background-color: $white;
+	padding: 2rem;
+	margin-bottom: 2rem;
+	color: $font-gray;
+	cursor: pointer;
+	transition: box-shadow .4s;
+
+	h5 {
+		font-size: 1.3em;
+		font-weight: 300;
+		margin: 0 0 1rem;
+		color: $alt-link;
+	}
+
+	&:hover {
+		box-shadow: 0 0 5px $alpha-shadow;
+	}
+
+	&.small {
+		padding: .618rem 1.618rem;
+
+		h5 {
+			color: $dark-gray;
+			margin: 0;
+		}
+	}
+
+	.alt {
+		background-color: $alt-link;
+	}
+}
+
+@include medium {
+	.wrap {
+		background-color: $bg-gray;
+	}
+}

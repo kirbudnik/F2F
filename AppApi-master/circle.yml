@@ -1,0 +1,26 @@
+machine:
+  node:
+    version: 8.5.0
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t $REGISTRY/$APP_NAME:$CIRCLE_TAG .
+
+test:
+  override:
+    - npm install
+    - npm run test
+
+deployment:
+  production:
+    tag: production
+    owner: facetofacebroadcasting
+    commands:
+      - ./deploy.sh
+  staging:
+    tag: staging
+    owner: facetofacebroadcasting
+    commands:
+      - ./deploy.sh
