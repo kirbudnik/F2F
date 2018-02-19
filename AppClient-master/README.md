@@ -8,7 +8,7 @@ This builds and serves a single page browser script for f2f.live. This includes 
 This part needs to be performed regardless of which build you are using.
 ```shell
 # Clone the repo
-git clone git@github.com:facetofacebroadcasting/AppClient.git
+git clone
 cd AppClient
 
 # Install dev dependencies
