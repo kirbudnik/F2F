@@ -13,12 +13,11 @@
 ::1             localhost
 127.0.0.1       dev.f2f.live
 ```
-2. Clone [AppClient](https://github.com/facetofacebroadcasting/AppClient) and follow the README to set it up.
-3. Clone [AppApi](https://github.com/facetofacebroadcasting/AppApi) and follow the README to set it up.
+2. Clone [AppClient] and follow the README to set it up.
+3. Clone [AppApi] and follow the README to set it up.
 4. Clone this repo and start docker:
 ```shell
 # Clone the repo
-git@github.com:facetofacebroadcasting/AppCompose.git
 
 # Run docker
 cd AppCompose
